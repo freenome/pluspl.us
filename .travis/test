@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+# Adapted from https://gist.github.com/nathforge/62456d9b18e276954f58eb61bf234c17
+
+set -e
+
+retry() {
+    local retries=$1
+    shift
+    local failures=0
+    while ! "$@"; do
+        failures=$(( $failures + 1 ))
+        (( $failures <= $retries )) || return 1
+        echo "$@" >&2
+        echo " * $failures failure(s), retrying..." >&2
+        sleep 1
+    done
+}
+
+# Start service
+docker run -p 8000:8000 -e DATABASE_URL --detach $IMAGE_NAME
+
+# Curl does not retry on error:
+# curl: (56) Recv failure: Connection reset by peer
+# This might happen when the service + gunicorn is starting up.
+# See https://github.com/benoitc/gunicorn/issues/1507
+retry 10 curl http://localhost:8000 > /dev/null

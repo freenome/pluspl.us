@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -e
+
+FULL_IMAGE="$IMAGE_NAME:git-$(git rev-parse HEAD)"
+docker tag $IMAGE_NAME $FULL_IMAGE
+docker push $FULL_IMAGE

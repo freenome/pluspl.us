@@ -1,0 +1,26 @@
+dist: bionic
+language: minimal
+services:
+- docker
+before_install:
+# Using travis' postgresql service fails with error:
+# $ travis_setup_postgresql
+# Unrecognized operating system.
+# Starting PostgreSQL v
+# Failed to stop postgresql.service: Unit postgresql.service not loaded.
+# Failed to start postgresql@-main.service: Unit postgresql@-main.service not found.
+- sudo apt-get -y install postgresql
+before_script:
+- openssl aes-256-cbc -K $encrypted_6039b97c915d_key -iv $encrypted_6039b97c915d_iv -in .travis/sa.json.enc -d | docker login -u _json_key --password-stdin https://gcr.io
+- docker build -t $IMAGE_NAME .
+script:
+- .travis/test
+deploy:
+- provider: script
+  script: .travis/release
+  on:
+    branch: master
+env:
+  global:
+  - IMAGE_NAME: gcr.io/freenome-build/plusplus
+  - DATABASE_URL: postgresql+psycopg2://postgres@localhost/postgres
