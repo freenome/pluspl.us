@@ -12,12 +12,9 @@ to take away a point. A few additional features have been built in (see below), 
 ### Features
 
 - `@jake++`: give a point to a user or a thing
-- `@jake--`: take a point away from a user or a thing
 - `@jake==`: get the current number of points a user or thing has
 - `@pluspl.us leaderboard`: get (up to) 10 of the top users and things
-- `@pluspl.us loserboard`: get (up to) 10 of the bottom users and things
 - `@pluspl.us leaderboard global`: get (up to) 10 of the top things across all teams
-- `@pluspl.us loserboard global`: get (up to) 10 of the bottom things across all teams
 - `@pluspl.us reset`: permanently removes all points from a Slack team
 - `@pluspl.us help`: get a list of the available commands from within Slack
 

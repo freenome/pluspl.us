@@ -10,8 +10,7 @@ def update_points(thing, end, is_self=False):
         operation = "plus"
         thing.increment()
     elif end == "--":
-        operation = "minus"
-        thing.decrement()
+        return "That's not very nice of you, would you like us to decrement your own points instead?  Didn't think so."
     else:
         operation = "equals"
     db.session.add(thing)
