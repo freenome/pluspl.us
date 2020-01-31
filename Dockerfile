@@ -1,4 +1,4 @@
-FROM gcr.io/freenome-build/devtools@sha256:5acd8cf4340b84e9d3208b52242d435596f5f353bf80b4f4d5e52528a43449ee AS builder_
+FROM gcr.io/freenome-build/devtools:20200131.3@sha256:9ae274e0a2944beff91652ff5985c84bc6ecff6fd48b9dc38d1b218907715f63 AS builder_
 
 RUN mkdir -p /install/bin /install/lib
 ENV PYTHONUSERBASE /install
@@ -16,7 +16,7 @@ RUN pip install --user --no-cache-dir \
     && find /install/lib -type d -name __pycache__ -exec rm -rf '{}' +
 
 
-FROM gcr.io/freenome-build/pybase@sha256:767804b63aad59b0eb1b4d3b9de160b80d2a5380d17e367398e3c33fc7d08007
+FROM gcr.io/freenome-build/pybase:20200131.3@sha256:8b483392dfb5d23e2fee89dd7fa7227ae9896bed689baad9f124a7c863f0a818
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
         libpq-dev=11.5-1+deb10u1 \
