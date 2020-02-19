@@ -16,7 +16,7 @@ RUN pip install --user --no-cache-dir \
     && find /install/lib -type d -name __pycache__ -exec rm -rf '{}' +
 
 
-FROM gcr.io/freenome-build/pybase:20200203.1@sha256:2da8e8f553512ad931a3d60ad6aa56036cb62dd51132a9daaf001b0309e45151
+FROM gcr.io/freenome-build/pybase:20200218.1@sha256:4613c12877839823bff176d6c3234a4575017fe96db02b2637116e4e0066b462
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
         libpq5=11.7-0+deb10u1 \
