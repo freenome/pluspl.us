@@ -4,7 +4,7 @@ RUN mkdir -p /install/bin /install/lib
 ENV PYTHONUSERBASE /install
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-        libpq-dev=11.5-1+deb10u1 \
+        libpq-dev=11.7-0+deb10u1 \
     && rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt /tmp/requirements.txt
