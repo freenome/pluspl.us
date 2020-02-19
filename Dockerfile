@@ -19,7 +19,7 @@ RUN pip install --user --no-cache-dir \
 FROM gcr.io/freenome-build/pybase:20200203.1@sha256:2da8e8f553512ad931a3d60ad6aa56036cb62dd51132a9daaf001b0309e45151
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-        libpq-dev=11.5-1+deb10u1 \
+        libpq=11.7-0+deb10u1 \
     && rm -rf /var/lib/apt/lists/*
 
 # Install python requirements
