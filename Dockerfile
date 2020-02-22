@@ -1,10 +1,10 @@
-FROM gcr.io/freenome-build/devtools:20200203.1@sha256:6d6c7a010345bf714549e22d5a9590d9d92042e4441caa9816f2418808882ea3 AS builder_
+FROM gcr.io/freenome-build/devtools:20200218.1@sha256:a86a7665be0bb6889c906fa7037c1c75bd85a4e172d56d3be7573b8fefb53cf3 AS builder_
 
 RUN mkdir -p /install/bin /install/lib
 ENV PYTHONUSERBASE /install
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-        libpq-dev=11.5-1+deb10u1 \
+        libpq-dev=11.7-0+deb10u1 \
     && rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt /tmp/requirements.txt
@@ -16,10 +16,10 @@ RUN pip install --user --no-cache-dir \
     && find /install/lib -type d -name __pycache__ -exec rm -rf '{}' +
 
 
-FROM gcr.io/freenome-build/pybase:20200203.1@sha256:2da8e8f553512ad931a3d60ad6aa56036cb62dd51132a9daaf001b0309e45151
+FROM gcr.io/freenome-build/pybase:20200218.1@sha256:4613c12877839823bff176d6c3234a4575017fe96db02b2637116e4e0066b462
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-        libpq-dev=11.5-1+deb10u1 \
+        libpq5=11.7-0+deb10u1 \
     && rm -rf /var/lib/apt/lists/*
 
 # Install python requirements
