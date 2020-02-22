@@ -35,8 +35,8 @@ def process_incoming_message(event_data, req):
     db.session.add(team)
     db.session.commit()
 
-    user_match = user_exp.match(message)
-    thing_match = thing_exp.match(message)
+    user_match = user_exp.search(message)
+    thing_match = thing_exp.search(message)
     if user_match:
         # handle user point operations
         found_user = user_match.groups()[0].strip()
