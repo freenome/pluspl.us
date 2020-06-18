@@ -20,7 +20,7 @@ deploy:
 - provider: script
   script: .travis/release
   on:
-    branch: master
+    branch: main
 env:
   global:
   - IMAGE_NAME: gcr.io/freenome-build/plusplus

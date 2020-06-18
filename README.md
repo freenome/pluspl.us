@@ -26,7 +26,7 @@ Support this project on [Patreon](https://www.patreon.com/plpl) or [Buy me a Cof
 
 ### Install Instructions
 
-(Instructions adapted from [here](https://github.com/tdmalone/working-plusplus/blob/master/README.md#installation))
+(Instructions adapted from [here](https://github.com/tdmalone/working-plusplus/blob/main/README.md#installation))
 
 1. **Create a new app in your Slack team.**
 
