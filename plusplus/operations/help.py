@@ -1,5 +1,6 @@
 from .. import config
 
+
 def help_text(team):
     commands = ["• *@(user)++*: add points to a user (e.g. {ping}++) ",
                 "• *@(user)==*: get current point total of a user (e.g. {ping}==)",
