@@ -1,4 +1,4 @@
-FROM gcr.io/freenome-build/devtools:20200811.3@sha256:d317834de913bb415bb82c0825f47877912f01e13c9a2ed5313b241f39f26137 AS builder_
+FROM gcr.io/freenome-build/devtools:20210127.4@sha256:0f6799a85fc1bf115e6f9c1db422555559f7a1d42c5e73b3a0d390a1445a6e2a AS builder_
 
 RUN mkdir -p /install/bin /install/lib
 ENV PYTHONUSERBASE /install
